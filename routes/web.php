@@ -15,3 +15,4 @@ use App\Http\Controllers\LinksController;
 
 Route::get('/', [LinksController::class, 'show'])->name('links.show');
 Route::post('/', [LinksController::class, 'send'])->name('links.send');
+Route::get('/{key}', [LinksController::class, 'redirect'])->where('key', '\w+')->name('links.redirect');
