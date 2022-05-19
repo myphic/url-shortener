@@ -22,17 +22,14 @@ class LinksController extends Controller
                 'key_link' => $linkKey,
             ]
         );
-
-        if($link) {
-            return back()->with('success', route('links.redirect', ['key' => $linkKey]));
-        }
-        return back()->with('error', 'Ссылка не сохранилась');
+        $data = ['url' => route('links.redirect', ['key' => $linkKey])];
+        return $data;
     }
 
     public function redirect(string $keyLink)
     {
         $link = Link::where(['key_link' => $keyLink])->first();
-        echo $link->source_link;
+
         if($link) {
             return redirect()->away($link->source_link);
         }

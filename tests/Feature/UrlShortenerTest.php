@@ -25,9 +25,12 @@ class UrlShortenerTest extends TestCase
      */
     public function test_created_link()
     {
-        $url = "https://youtube.com";
-        $res = $this->post('/', ['url' => $url]);
+        $link = Link::factory()->create();
+        $res = $this->post('/', [
+            'source_link' => $link->source_link,
+            'key_link' => $link->key_link,
+        ]);
 
-        $res->assertStatus(201);
+        $res->assertStatus(200);
     }
 }

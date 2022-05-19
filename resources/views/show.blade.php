@@ -1,18 +1,17 @@
 @extends('layouts.main')
 @section('content')
-<div>
-    @if($errors->any())
-    @foreach($errors->all() as $error)
-        <div style="color: red"> {{ $error }}</div>
-    @endforeach
-    @endif
-    @if(session()->has('success'))
-        <p><strong>Links: <a href="{{ session()->get('success') }}">{{ session()->get('success') }}</a></strong></p>
-    @endif
-    <form action="{{ route('links.send') }}" id="main-form" method="post">
-        @csrf
-        <input type="text" name="url" placeholder="https://example.com"/>
-        <input type="submit" value="Send"/>
-    </form>
+<div class="container d-flex justify-content-center align-items-center flex-column mt-auto vh-100">
+    <div class="w-50">
+        <form>
+            @csrf
+            <div class="form-group mb-3">
+                <input class="form-control" type="text" name="url" placeholder="https://example.com"/>
+            </div>
+            <input type="button" value="Сгенерировать ссылку" id="btn-submit" class="btn btn-primary form-control"/>
+        </form>
+    </div>
+    <div class="w-50">
+        <p><strong>Короткая ссылка: <a href="" id="link"></a></strong></p>
+    </div>
 </div>
 @stop
