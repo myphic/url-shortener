@@ -17,13 +17,12 @@ class LinksController extends Controller
         $url = $request->input('url');
         $randomStr = Str::random(5);
         $linkKey = str_shuffle($randomStr);
-        $link = Link::create([
+        Link::create([
                 'source_link' => $url,
                 'key_link' => $linkKey,
             ]
         );
-        $data = ['url' => route('links.redirect', ['key' => $linkKey])];
-        return $data;
+        return ['url' => route('links.redirect', ['key' => $linkKey])];
     }
 
     public function redirect(string $keyLink)
