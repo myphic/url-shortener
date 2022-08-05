@@ -15,7 +15,7 @@
 Backend: 
     
 1. composer install
-2. Создать .env файл по аналогии с env-example (DB_CONNECTION и DB_HOST должны соответствовать названию контейнера mysql в docker)
+2. Создать .env файл по аналогии с env-example (DB_CONNECTION должен соответствовать названию контейнера mysql в docker)
 3. Создать app-key: php artisan key:generate
 4. docker-compose up
 5. php artisan migrate
