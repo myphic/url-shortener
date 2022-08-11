@@ -32,7 +32,7 @@ Frontend:
 - Laravel
 - Docker
 - Тестирование
-- Ajax (Jquery)
+- Ajax 
 - Mysql
 - Bootstrap
 
